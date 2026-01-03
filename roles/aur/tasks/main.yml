@@ -1,0 +1,38 @@
+- name: Create AUR build user
+  ansible.builtin.user:
+    name: aur_builder
+    create_home: true
+    group: wheel
+  become: true
+  tags: [aur]
+
+- name: Allow aur_builder to run pacman without password
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: true
+    mode: "0440"
+    validate: 'visudo -cf %s'
+  become: true
+  tags: [aur]
+
+- name: Install AUR packages
+  kewlfft.aur.aur:
+    name: >-
+      {{
+        (aur_packages_extra | default([]))
+        + ((aur_packages_work | default([])) if ('work' in group_names) else [])
+        + ((aur_packages_development | default([])) if ('development' in group_names) else [])
+        | unique
+      }}
+    state: present
+    use: "{{ aur_helper }}"
+  become: true
+  become_user: aur_builder
+  when: >
+    (
+      (aur_packages_extra | default([]))
+      + ((aur_packages_work | default([])) if ('work' in group_names) else [])
+      + ((aur_packages_development | default([])) if ('development' in group_names) else [])
+    ) | length > 0
+  tags: [aur]

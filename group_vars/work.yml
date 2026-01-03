@@ -1,0 +1,4 @@
+aur_packages_work:
+  - forticlient-vpn           # Fortinet VPN client
+  - teams-for-linux           # Teams installation for linux
+

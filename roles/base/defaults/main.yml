@@ -1,0 +1,11 @@
+# Packages everyone should get
+pacman_packages_common: []
+
+# Extra packages for a given host/group
+pacman_packages_extra: []
+pacman_packages_nvidia: []
+pacman_packages_development: []
+
+# Feature toggle
+base_upgrade: false
+

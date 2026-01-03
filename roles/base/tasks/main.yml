@@ -1,0 +1,51 @@
+- name: Show target summary
+  ansible.builtin.debug:
+    msg:
+      - "Host: {{ inventory_hostname }}"
+      - "Hostname: {{ ansible_facts.hostname }}"
+      - "OS: {{ ansible_facts.distribution | default('unknown') }} {{ ansible_facts.distribution_version | default('') }}"
+
+# This block is Arch-specific and will be conditioned later for other distros.
+- name: Upgrade system packages (optional)
+  community.general.pacman:
+    upgrade: true
+    update_cache: true
+  when:
+    - ansible_facts.distribution | lower == "archlinux"
+  tags: [upgrade]
+
+- name: Install pacman packages (Arch)
+  community.general.pacman:
+    name: "{{ (pacman_packages_common + pacman_packages_extra) | unique }}"
+    state: present
+  when:
+    - ansible_facts.distribution | lower == "archlinux"
+  tags: [base]
+
+- name: Install NVIDIA packages
+  community.general.pacman:
+    name: "{{ pacman_packages_nvidia | default([]) | unique }}"
+    state: present
+  when:
+    - ansible_facts.distribution | lower == "archlinux"
+    - (pacman_packages_nvidia | default([])) | length > 0
+    - "'nvidia' in group_names"
+  tags: [nvidia]
+
+- name: Install KDE/Plasma packages
+  community.general.pacman:
+    name: "{{ pacman_packages_kde | default([]) | unique }}"
+    state: present
+  when:
+    - ansible_facts.distribution | lower == "archlinux"
+  tags: [kde]
+
+- name: Install pacman development packages
+  community.general.pacman:
+    name: "{{ pacman_packages_development | default([]) | unique }}"
+    state: present
+  when:
+    - ansible_facts.distribution | lower == "archlinux"
+    - (pacman_packages_development | default([])) | length > 0
+    - "'development' in group_names"
+  tags: [development]

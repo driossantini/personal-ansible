@@ -1,0 +1,10 @@
+pacman_packages_development:
+  - r                         # R language (official repo)
+
+aur_packages_development:
+  - vscodium-bin              # VScode with microsoft telemetry removed
+  - radian                    # nicer R console
+  - quarto-cli-bin            # Quarto CLI
+  - git-credential-manager    # Git credential helper
+  - git-credential-manager-extras
+  - python-rchitect           # R <-> Python bridge

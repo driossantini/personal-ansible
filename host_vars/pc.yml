@@ -1,0 +1,92 @@
+pacman_packages_extra:
+  # --- CLI utilities ---
+  - aria2                      # fast CLI downloader
+  - duf                        # disk usage (friendly df)
+  - htop                       # process viewer
+  - lazygit                    # TUI git client
+  - ripgrep                    # fast text search (rg)
+  - tealdeer                   # simplified man pages
+  - tmux                       # terminal multiplexer
+  - unrar                      # extract RAR archives
+  - wireguard-tools            # WireGuard VPN tools
+
+  # --- Development / documentation ---
+  - chezmoi                    # dotfiles manager
+  - github-cli                 # GitHub CLI
+  - pandoc-cli                 # document converter (MD <-> PDF/HTML/etc.)
+
+  # --- Desktop apps ---
+  - firefox                    # web browser
+  - thunderbird                # email client
+  - telegram-desktop           # Telegram client
+  - libreoffice-fresh          # office suite
+  - nextcloud-client           # Nextcloud sync client
+  - foliate                    # eBook reader
+
+  # --- Graphics  ---
+  - blender                    # 3D modelling
+  - gimp                       # image editor
+  - inkscape                   # vector graphics editor
+
+  # --- Gaming / emulation ---
+  - steam                      # Steam client
+  - flashgbx                   # GB/GBC flash cart tool
+
+  # --- System / OS integration ---
+  - flatpak                    # Flatpak runtime/app manager
+  - hwdetect                   # hardware detection
+  - hwinfo                     # hardware info tool
+  - mtools                     # FAT tools (mcopy, mdir, etc.)
+  - rpi-imager                 # Raspberry Pi imaging tool
+
+  # --- UI helpers ---
+  - conky                      # desktop system monitor widget
+
+  # --- AUR helper ---
+  - yay                        # AUR helper (usually installed from AUR)
+
+pacman_packages_kde:
+  - dolphin-plugins            # Dolphin integrations
+  - ark                        # archive manager
+  - okular                     # document viewer
+  - gwenview                   # image viewer
+  - yakuake                    # dropdown terminal
+  - spectacle                  # screenshot tool
+  - kcolorchooser              # colour picker
+  - partitionmanager           # partition GUI
+  - plasma-browser-integration # browser integration
+
+aur_packages_extra:
+  # --- Security / credentials ---
+  - 1password                 # password manager
+  - 1password-cli             # 1Password CLI
+
+  # --- App installation ---
+  - appimagelauncher          # integrates AppImages into the desktop
+
+  # --- Desktop utilities ---
+  - caffeine-ng               # prevent sleep / keep-awake toggle
+  - conky-manager2-git        # GUI manager for Conky widgets
+
+  # --- File sync ---
+  - insync                    # Google Drive/OneDrive sync client
+  - insync-dolphin            # Dolphin integration for Insync
+  - insync-emblem-icons       # icons/emblems for Insync integration
+
+  # --- Office / writing ---
+  - onlyoffice-bin            # ONLYOFFICE desktop editors (binary build)
+  - miktex                    # TeX distribution (large; ensure you want full MiKTeX)
+
+  # --- Notes / knowledge management ---
+  - qownnotes                 # markdown note-taking app
+  - zotero-bin                # reference manager (binary build)
+
+  # --- Media / communication ---
+  - spotify                   # Spotify client
+  - whatsapp-for-linux        # WhatsApp desktop client wrapper
+  - youtube-music-bin         # YouTube Music desktop client (binary build)
+
+  # --- Small utilities ---
+  - koi                       # Light/Dark theme switcher
+
+

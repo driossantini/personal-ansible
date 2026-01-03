@@ -1,0 +1,3 @@
+pacman_packages_nvidia:
+  - cuda              # CUDA toolkit
+  - nvidia-settings   # NVIDIA settings GUI

@@ -1,0 +1,14 @@
+pacman_packages_common:
+  - git
+  - curl
+  - htop
+
+pacman_packages_extra: []
+
+pacman_packages_kde: []
+
+pacman_packages_nvidia: []
+
+aur_packages_extra: []
+
+aur_packages_work: []
